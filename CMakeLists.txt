@@ -2,6 +2,7 @@
 # File: CMakeLists.txt
 # Author: Ozzie Mercado
 # Created: November 24, 2020
+# Modified: November 25, 2020
 # Description: Generates the project on Windows. Tested for use with Visual Studio 2019.
 #########################################################################################
 
@@ -26,7 +27,11 @@ if (WIN32)
 elseif(APPLE)
     message("ERROR: Mac is not supported due to a rendering issue with Gateware.\n")
 elseif (UNIX AND NOT APPLE)
-    # Linux support for this project is untested.
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -lX11")
+    find_package(X11)
+    include_directories(${X11_INCLUDE_DIR})
+    link_libraries(${X11_LIBRARIES})
+    add_executable (GatewarePuppet ${ProjectFiles})
 endif()
 
 # Preserves the folder structure.
