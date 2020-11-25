@@ -3,7 +3,7 @@
 	File: main.cpp
 	Author: Ozzie Mercado
 	Created: September 25, 2020
-	Modified: November 23, 2020
+	Modified: November 25, 2020
 	Description: Entry point for the application. This demo was created to show off some of the features
 		I worked on for Gateware 1.2a like being able to set the window icon at runtime, locking the size 
 		of a window, and Xbox One controller support on all platforms.
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
 			bool freezeFace = false;
 			bool freezeFaceButtonReset = true; // Used to required the freezeFace button to be reset before freezeFace can change state again.
 			bool controllerConnectionEstablished = false; // Used for changes in controller connection.
-			Face face(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+			Puppet::Face face(DISPLAY_WIDTH, DISPLAY_HEIGHT);
 
 			// Run loop
 			while (+window.ProcessWindowEvents())
@@ -79,7 +79,7 @@ int main(int argc, char** argv)
 				{
 					if (!controllerConnectionEstablished) // Change the color of the face if the controller just connected.
 					{						
-						face.SetColor(Face::Color::Purple);
+						face.SetColor(Puppet::Face::Color::Purple);
 						controllerConnectionEstablished = true;
 					}
 
@@ -92,7 +92,7 @@ int main(int argc, char** argv)
 						{
 							if (freezeFaceButtonReset) // If the freezeFace button is pressed after the button reset, change the color of the face and unfreeze.
 							{
-								face.SetColor(Face::Color::Purple);
+								face.SetColor(Puppet::Face::Color::Purple);
 								freezeFace = false;
 								freezeFaceButtonReset = false;
 							}
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
 						{
 							if (freezeFaceButtonReset)
 							{
-								face.SetColor(Face::Color::Blue);
+								face.SetColor(Puppet::Face::Color::Blue);
 								freezeFace = true;
 								freezeFaceButtonReset = false;
 							}
@@ -116,37 +116,37 @@ int main(int argc, char** argv)
 
 						// Update face color on NWSE buttons
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_NORTH_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetColor(Face::Color::Orange);
+							face.SetColor(Puppet::Face::Color::Orange);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_SOUTH_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetColor(Face::Color::Green);
+							face.SetColor(Puppet::Face::Color::Green);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_WEST_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetColor(Face::Color::Purple);
+							face.SetColor(Puppet::Face::Color::Purple);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_EAST_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetColor(Face::Color::Red);
+							face.SetColor(Puppet::Face::Color::Red);
 
 						// Update mouth based on D-pad
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_DPAD_UP_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetMouth(Face::Expression::Smile);
+							face.SetMouth(Puppet::Face::Expression::Smile);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_DPAD_DOWN_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetMouth(Face::Expression::Sad);
+							face.SetMouth(Puppet::Face::Expression::Sad);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_DPAD_LEFT_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetMouth(Face::Expression::Happy);
+							face.SetMouth(Puppet::Face::Expression::Happy);
 						else if (+controllerHandler.GetState(CONTROLLER_ONE, G_DPAD_RIGHT_BTN, pollValue) && static_cast<bool>(pollValue))
-							face.SetMouth(Face::Expression::Suprise);
+							face.SetMouth(Puppet::Face::Expression::Suprise);
 
 						// Update eyelids based on triggers
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_LEFT_TRIGGER_AXIS, pollValue))
-							face.AdjustEyelid(pollValue, Face::Side::Left);
+							face.AdjustEyelid(pollValue, Puppet::Face::Side::Left);
 
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_RIGHT_TRIGGER_AXIS, pollValue))
-							face.AdjustEyelid(pollValue, Face::Side::Right);
+							face.AdjustEyelid(pollValue, Puppet::Face::Side::Right);
 
 						// Move eyebrows based on shoulder buttons
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_LEFT_SHOULDER_BTN, pollValue))
-							face.MoveEyebrow(-pollValue, Face::Side::Left);
+							face.MoveEyebrow(-pollValue, Puppet::Face::Side::Left);
 
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_RIGHT_SHOULDER_BTN, pollValue))
-							face.MoveEyebrow(-pollValue, Face::Side::Right);
+							face.MoveEyebrow(-pollValue, Puppet::Face::Side::Right);
 
 						// Move eyes based on right thumbstick
 						float stickX = 0.0f, stickY = 0.0f;
@@ -157,13 +157,13 @@ int main(int argc, char** argv)
 						if (+controllerHandler.GetState(CONTROLLER_ONE, G_RX_AXIS, pollValue))
 							stickX = pollValue;
 
-						face.MoveEye(stickX, stickY, Face::Side::Left);
-						face.MoveEye(stickX, stickY, Face::Side::Right);
+						face.MoveEye(stickX, stickY, Puppet::Face::Side::Left);
+						face.MoveEye(stickX, stickY, Puppet::Face::Side::Right);
 					}
 				}
 				else if (controllerConnectionEstablished) // Change the color of the face if the controller was just disconnected.
 				{					
-					face.SetColor(Face::Color::Violet);
+					face.SetColor(Puppet::Face::Color::Violet);
 					controllerConnectionEstablished = false;
 				}
 

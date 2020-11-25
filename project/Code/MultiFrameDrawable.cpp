@@ -11,23 +11,26 @@
 #include "MultiFrameDrawable.h"
 #include <assert.h>
 
-MultiFrameDrawable::MultiFrameDrawable(const unsigned int* _pixels, unsigned int _width, unsigned int _height, unsigned int _totalFrames) :
-	Drawable(_pixels, _width, _height, 0, 0, false),
-	frameHead(_pixels),
-	frame(0),
-	totalFrames(_totalFrames)
+namespace Puppet
 {
-}
+	MultiFrameDrawable::MultiFrameDrawable(const unsigned int* _pixels, unsigned int _width, unsigned int _height, unsigned int _totalFrames) :
+		Drawable(_pixels, _width, _height, 0, 0, false),
+		frameHead(_pixels),
+		frame(0),
+		totalFrames(_totalFrames)
+	{
+	}
 
-MultiFrameDrawable::~MultiFrameDrawable()
-{
-	frameHead = nullptr;
-}
+	MultiFrameDrawable::~MultiFrameDrawable()
+	{
+		frameHead = nullptr;
+	}
 
-void MultiFrameDrawable::SetFrame(unsigned int _frame)
-{
-	assert(_frame < totalFrames); // _frame is outside of the number of frames available.
+	void MultiFrameDrawable::SetFrame(unsigned int _frame)
+	{
+		assert(_frame < totalFrames); // _frame is outside of the number of frames available.
 
-	frame = _frame;
-	SetPixels(frameHead + static_cast<long long>(GetPixelCount()) * frame, GetWidth(), GetHeight());
+		frame = _frame;
+		SetPixels(frameHead + static_cast<long long>(GetPixelCount()) * frame, GetWidth(), GetHeight());
+	}
 }
