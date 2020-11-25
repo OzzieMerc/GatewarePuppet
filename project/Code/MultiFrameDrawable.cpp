@@ -3,7 +3,7 @@
 	File: MultiFrameDrawable.h
 	Author: Ozzie Mercado
 	Created: September 25, 2020
-	Modified: November 23, 2020
+	Modified: November 25, 2020
 	Description: See header file for more documentation.
 ----------------------------------------------------------------------------------------------------------
 */
@@ -22,7 +22,6 @@ MultiFrameDrawable::MultiFrameDrawable(const unsigned int* _pixels, unsigned int
 MultiFrameDrawable::~MultiFrameDrawable()
 {
 	frameHead = nullptr;
-	Drawable::~Drawable();
 }
 
 void MultiFrameDrawable::SetFrame(unsigned int _frame)
