@@ -1,8 +1,9 @@
 # Gateware Puppet
+![Image of Gateware Puppet](GatewarePuppet.png)<br>
 
-The Gateware Puppet is a toy that can be manipulated using a controller. You can change expression on the puppet's face by individually controlling the puppets eyes, eyebrows, eyelids, mouth, and face color. This project was created to demonstrate some of the features I worked on for version 1.2a of the [Gateware](https://gitlab.com/gateware-development/gateware/-/releases) game development tool.
+The Gateware Puppet is a toy that can be manipulated using a controller. You can change the expression on the puppet's face by individually controlling the puppet's eyes, eyebrows, eyelids, mouth, and face color. This project was created to demonstrate some of the features I worked on for version 1.2a of the [Gateware](https://gitlab.com/gateware-development/gateware/-/releases) game development tool.
 
-### The features demonstrated that I added to Gateware:
+### Features demonstrated that I added to Gateware include:
 - Xbox One controller support for Mac and Linux.
 - PS4 controller support for Mac and Linux.
 - Dynamic icon setting at runtime.
@@ -18,22 +19,17 @@ The Gateware Puppet is a toy that can be manipulated using a controller. You can
 ## Controllers Supported
 The project uses Gateware's GController library and therefore supports the same controllers supported by that library.
 
-### Controllers supported on Windows:
+#### On Windows:
 - Xbox 360
 - Xbox One
 
-### Controllers supported on Mac:
-- Xbox 360
-- Xbox One
-- PS4
-
-### Controllers supported on Linux:
+#### On Mac & Linux:
 - Xbox 360
 - Xbox One
 - PS4
 
 ## Getting Started
-### On Windows
+#### On Windows
 1. Clone the repository.
 2. Navigate to the GatewarePuppet/scripts folder.
 3. If CMake is not installed, [install CMake.](https://cmake.org/download/)
@@ -43,7 +39,7 @@ The project uses Gateware's GController library and therefore supports the same 
 7. In the "Solution Explorer" right-click on "GatewarePuppet" and select "Set as Startup Project"
 8. You can now build and run the project. A controller is required to manipulate the puppet.
 
-### On Linux
+#### On Linux
 1. Clone the repository.
 2. Navigate to the GatewarePuppet/scripts folder.
 3. If CMake is not installed, [install CMake.](https://cmake.org/download/)
