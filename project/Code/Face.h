@@ -3,7 +3,7 @@
 	File: Face.h
 	Author: Ozzie Mercado
 	Created: September 25, 2020
-	Modified: November 23, 2020
+	Modified: November 25, 2020
 	Description: An object that represents and renders a face with two eyes, a mouth.
 ----------------------------------------------------------------------------------------------------------
 */
@@ -13,7 +13,7 @@
 #include "Eye.h"
 #include "MultiFrameDrawable.h"
 
-class Face
+class Face final
 {
 public:
 	enum class Color
