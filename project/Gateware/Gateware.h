@@ -80646,7 +80646,7 @@ namespace GW {
 					return GReturn::INVALID_ARGUMENT;
 				}
 				// ensure pixel count is within bitmap bounds
-				if (_numPixels >= m_bitmapWidth * m_bitmapHeight)
+				if (_numPixels > m_bitmapWidth * m_bitmapHeight)
 				{
 					DebugPrint("_numPixels was greater than surface's bounds\n");
 					DebugPrint("SmartUpdateSurface return\n");
@@ -80660,7 +80660,7 @@ namespace GW {
 					return GReturn::INVALID_ARGUMENT;
 				}
 				// ensure row width is within horizontal bounds
-				if (_rowWidth >= m_bitmapWidth)
+				if (_rowWidth > m_bitmapWidth)
 				{
 					DebugPrint("_rowWidth was greater than surface's width\n");
 					DebugPrint("SmartUpdateSurface return\n");
@@ -81933,7 +81933,7 @@ namespace GW {
 					return GReturn::INVALID_ARGUMENT;
 				}
 				// ensure pixel count is within bitmap bounds
-				if (_numPixels >= m_bitmapWidth * m_bitmapHeight)
+				if (_numPixels > m_bitmapWidth * m_bitmapHeight)
 				{
 					DebugPrint("_numPixels was greater than surface's bounds\n");
 					DebugPrint("SmartUpdateSurface return\n");
@@ -81947,7 +81947,7 @@ namespace GW {
 					return GReturn::INVALID_ARGUMENT;
 				}
 				// ensure row width is within horizontal bounds
-				if (_rowWidth >= m_bitmapWidth)
+				if (_rowWidth > m_bitmapWidth)
 				{
 					DebugPrint("_rowWidth was greater than surface's width\n");
 					DebugPrint("SmartUpdateSurface return\n");
