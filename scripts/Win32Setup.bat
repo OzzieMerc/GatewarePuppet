@@ -1,7 +1,8 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: File: CMakeLists.txt
+:: File: Win32Setup.bat
 :: Author: Ozzie Mercado
 :: Created: November 24, 2020
+:: Modified: November 25, 2020
 :: Description: Creates a folder for the project and runs CMake.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
